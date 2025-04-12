@@ -34,6 +34,14 @@ func (app *Application) Moul() *chi.Mux {
 
 	r.Post("/auth/login", app.Login)
 	r.Post("/auth/signup", app.Singup)
+
+	r.Post("/upload/pdf", app.UploadPDF)
+	r.Get("/download/pdf", app.DownloadPDF)
+
+	r.Post("/convert/json", app.ConvertJSON)
+
+	r.Get("/download/csv", app.DownloadCSV)
+	r.Get("/download/excel", app.DownloadExcel)
 	return r
 }
 
