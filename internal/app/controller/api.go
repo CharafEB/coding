@@ -23,7 +23,7 @@ func (app *Application) Moul() *chi.Mux {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 
-	r.Get("/", app.tst)
+	r.Get("/leabgin", app.tst)
 	// project
 	r.Post("/project/add", app.AddProject)
 	r.Delete("/project/delete", app.DeleteProject)

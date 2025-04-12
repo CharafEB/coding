@@ -6,16 +6,22 @@ import (
 	"fmt"
 	"github/codingMaster/internal/app/model"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
+	"text/template"
 	"time"
 
 	"github.com/xuri/excelize/v2"
 )
 
 func (t *Application) tst(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello world"))
+	temp := template.Must(template.ParseFiles("./leabgin/index.html"))
+
+	if err := temp.Execute(w, nil); err != nil {
+		log.Panic(err)
+	}
 }
 
 func (app *Application) Login(w http.ResponseWriter, r *http.Request) {
@@ -361,3 +367,4 @@ func (app *Application) DownloadExcel(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
